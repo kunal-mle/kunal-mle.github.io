@@ -4,13 +4,15 @@
 - Linear relationship (ofc)
 - Residuals follow a normal dist.
 - No multi-correlation b/w features
+
 [Source](https://towardsdatascience.com/assumptions-of-linear-regression-fdb71ebeaa8b)
 
 ## How to find K in K-means clustering?
 
 - Elbow Method (try various values of k)
 - Silhoutte Method
-[Souce](https://medium.com/analytics-vidhya/how-to-determine-the-optimal-k-for-k-means-708505d204eb)
+
+[Source](https://medium.com/analytics-vidhya/how-to-determine-the-optimal-k-for-k-means-708505d204eb)
 
 ## Accuracy of clustering algorithm?
 
@@ -35,6 +37,7 @@
 - Limit max depth of the tree
 - Ensembles/Bagging more than 1 tree
 - Strict stopping criterion on splitting node further
+
 [Source](https://www.quora.com/How-is-regularization-performed-on-simple-decision-trees/answer/Satendra-Kumar?ch=10&oid=63449982&share=23cde347&srid=oQch&target_type=answer)
 
 ## Bias-Variance
@@ -43,6 +46,7 @@
 - Variance = E(predicted value - avg.(all predicted values))
 - High Train Error : High Bias
 - High Test Error : High Variance
+
 [Source](https://towardsdatascience.com/bias-variance-tradeoff-in-machine-learning-models-a-practical-example-cf02fb95b15d)
 
 ## Gradient Descent
@@ -52,6 +56,7 @@
 Requirements:
 - Differentiable
 - Convex or Quasi-Convex
+
 [Source](https://towardsdatascience.com/gradient-descent-algorithm-a-deep-dive-cf04e8115f21)
 
 ## Handle Categorical and Missing Input Feature Data
@@ -60,7 +65,8 @@ Requirements:
 - Create a 1/0 binary feature vector for each category
 - Replace category with a mean of continuous feature in that category
 - For missing data, perform imputation with mean/median of that category
-[Souce](https://towardsdatascience.com/feature-handling-3f14c12ecbb8)
+
+[Source](https://towardsdatascience.com/feature-handling-3f14c12ecbb8)
 
 ## Handle Data Imbalance for Binary Classification
 
@@ -68,6 +74,7 @@ Requirements:
 	- Oversampling/Undersampling
 	- SMOTE (Synthetic Minority Oversampling TEchnique)
 - Cost-sensitive methods (Act on the cost function)
+
 [Source](https://towardsdatascience.com/guide-to-classification-on-imbalanced-datasets-d6653aa5fa23)
 
 ## Gradient Clipping
@@ -75,6 +82,7 @@ Requirements:
 - To solve exploding gradients problem
 - if ||g|| > c , rescale it so that norm is exactly c
 - c is a hyperparameter
+
 [Source](https://towardsdatascience.com/what-is-gradient-clipping-b8e815cdfb48)
 
 ## HDBSCAN
@@ -82,6 +90,7 @@ Requirements:
 - Define density of a point as inverse of the distance to it's Kth nearest neigbhour
 - Plot density vs the points in its feature space, mountains could be clusters
 - Select different thresholds to find mountains based on some criteria
+
 [Source](https://towardsdatascience.com/a-gentle-introduction-to-hdbscan-and-density-based-clustering-5fd79329c1e8)
 
 ## Dimensionality Reduction
@@ -89,4 +98,5 @@ Requirements:
 - LSI: Split into SVD as X = USV^T, pick top k right singular vectors i.e. V_k, X_red = X * V_k
 - PCA: Make unit var and 0 mean, take COV matrix, perform EVD, pick k largest eig vectors as V_k (same as above)
 - NMF: Find W,H to min ||X-WH||, use W as dimensionality reduced version of X
+
 [Source](https://stats.stackexchange.com/questions/134282/relationship-between-svd-and-pca-how-to-use-svd-to-perform-pca)
