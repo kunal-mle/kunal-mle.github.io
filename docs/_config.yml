@@ -1,5 +1,28 @@
-title: Your awesome title
-description: Senpai is here
-theme: jekyll-theme-cayman
+title: Learning Machine Learning
+description: My personal notes for ML
+theme: beautiful-jekyll-theme
+avatar: "/senpai.jpg"
+round-avatar: true
+social-network-links:
+  email: "kunalkishore@ucla.edu"
+  rss: false
+  linkedin: kunalucla
+  facebook: borncoder
+  github: kunal-ucla
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+navbar-links:
+  About Me: "about"
+  Quick Notes: "notes"
+sass:
+  # loading path from site root
+  # default to _sass
+  sass_dir: bower_components/bootstrap-sass/assets/stylesheets
+  # style : nested (default), compact, compressed, expanded
+  #         :nested, :compact, :compressed, :expanded also works
+  # see http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  # on a typical twitter bootstrap stats are :
+  # nested 138,7kB, compact 129,1kB, expanded 135,9 kB, compressed 122,4 kB
+  style: compressed
