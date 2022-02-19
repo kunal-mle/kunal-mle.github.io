@@ -16,6 +16,7 @@ plugins:
 navbar-links:
   About Me: "about"
   Quick Notes: "notes"
+  CV/Resume: "resume"
 sass:
   # loading path from site root
   # default to _sass
