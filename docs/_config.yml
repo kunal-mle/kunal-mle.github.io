@@ -1,6 +1,6 @@
 title: Learning Machine Learning
 description: My personal notes for ML
-theme: beautiful-jekyll-theme
+remote_theme: daattali/beautiful-jekyll
 avatar: "/senpai.jpg"
 round-avatar: true
 social-network-links:
