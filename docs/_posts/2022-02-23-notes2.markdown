@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "Reference Notes - 2"
+date:   2022-02-23 03:18:38 -0800
+categories: notes
+permalink: /notes/
+---
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+
+## LSTM
+
+[Source]()
+
+---
+
+## Autocorrect
+
+- Find similar words by sorting based on 'Jaccard Distance'
+- Return word with max probability or min distance
+
+[Source](https://www.analyticsvidhya.com/blog/2021/11/autocorrect-feature-using-nlp-in-python/)
+[Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.67.9369&rep=rep1&type=pdf)
+
+---
+
+## Unsupervised clustering using NN
+
+- Method 1 (indirect):
+    - Use auto-encoder to train the hidden layer
+    - Use the hidden layer's activations for clustering
+- Method 2:
+    - Use SOM (Self Organising Maps)
+
+[Source](https://stats.stackexchange.com/questions/140148/how-can-an-artificial-neural-network-ann-be-used-for-unsupervised-clustering)
+
+---
+
+## Time series forecasting
+
+### Random forests
+
+### Xgboost Lightbgm
+
+[Source]()
+
+---
+
+## Causal Time Series
+
+[Source]()
+
+---
+
+## Reinforcement Learning Basics
+
+[Source]()
+
+---
+
+## Gausian Mixture Models
+
+[Source]()
+
+---
