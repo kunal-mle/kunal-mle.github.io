@@ -3,7 +3,6 @@ layout: post
 title:  "Reference Notes - 1"
 date:   2022-02-22 21:54:38 -0800
 categories: notes
-permalink: /notes/
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 
