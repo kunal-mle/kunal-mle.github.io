@@ -1,11 +1,18 @@
 title: Learning Machine Learning
-email: kunalkishore@ucla.edu
+author:
+  name: Kunal Kishore
+  email: kunalkishore@ucla.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Graduate student @ UCLA, Electrical and Computer Engineering Department.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  kunal-ucla
-linkedin_username: kunalucla
+minima:
+  social_links:
+    github:  kunal-ucla
+    linkedin: kunalucla
+    facebook: borncoder
+    instagram: kunal._.kishore
+google_analytics: G-NXB2SQNZ3H
 
 # Build settings
 theme: minima
