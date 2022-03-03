@@ -1,0 +1,81 @@
+---
+layout: post
+title:  "RNNs and LSTMs"
+date:   2022-02-28 8:22:38 -0800
+categories: topics
+---
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+
+### RNN - Recurrent Neural Network
+
+First let's know a little about RNNs. Basically, it's meant to keep hold of the past information in order to predict future values. Example, the next word in the sentence "the clouds are in the __" can be predicted to be 'sky' if we remember the context of the sentence by allowing information to persist in our model. In structure, they look like this:
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/jp0f5hgdyhgvbo6/Screenshot%202022-02-28%20at%207.35.31%20AM.png?raw=1){: width="75%" }
+{: refdef}
+
+In the above diagram, a chunk of neural network, $$A$$, looks at some input $$x_t$$ and outputs a value $$h_t$$. A loop allows information to be passed from one step of the network to the next.
+
+We can think of them as a series of normal neural networks stacked infinitely in a chain like this:
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/59rn156rfity977/Screenshot%202022-02-28%20at%207.37.14%20AM.png?raw=1){: width="75%" }
+{: refdef}
+
+The repeating module of standard RNN just has a single tanh layer. This is how it looks like:
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/8v270xbd1i3hx3n/Screenshot%202022-02-28%20at%207.46.45%20AM.png?raw=1){: width="75%" }
+{: refdef}
+
+But one limitation of RNNs is that it is can't maintain the past context when the gap becomes long enough. Example, if a paragraph starts with "Cats have excellent sense of smell". And if the entire paragraph talks about it referring to as 'it' everytime, an RNN would soon forget that 'it' is a cat. Think of it like the past's weightage falls with time without realising that certain information could be useful even if it's far back in time.
+
+In theory, standard RNNs like above are absolutely capable of handling such 'long term dependencies'. But in practice, they don't seem to be able to learn them. To overcome this, we make use of a special type of RNN called LSTM.
+
+### LSTM - Long Short Term Memory Network
+
+Like RNNs, LSTMs can remember past information as well. But unlike RNNs, LSTMs can hold on to past information for long periods of time - it is their default behaviour!
+
+While RNNs had a single tanh layer as the repeating module, LSTMs have 4 layers in the repeating module, which looks like this:
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/pamcx2nlrzd40vh/Screenshot%202022-02-28%20at%207.50.04%20AM.png?raw=1){: width="75%" }
+{: refdef}
+
+There are 5 main terms that we need to understand, first 3 inputs and last 2 outputs:
+- $$h_{t-1}$$ : which is the output of the previous copy of this module
+- $$x_t$$ : which is the current input data sample
+- $$C_{t-1}$$ : previous *cell state*, that is to be modified by this module
+- $$C_t$$ : output modified cell state
+
+#### Cell State
+
+This information flows across the series of modules like a conveyer belt. At every step of the flow across a module, certain parts of it could get modified while other parts could remain completely the same. This is the term that allows LSTMs to retain past information for long without reducing its weight unlike RNNs. A certain part of this cell state could be overwritten if a new information of that type is came across.
+
+For example: the cell state can retain information like the subject's name in a paragraph, ex:'Chad is a great sportsman. He does ... His friends call him ...'. So the cell state can retain that we are still talking about 'Chad' without it getting modified. Now if the next sentence changes the subject with something like 'In contrast, Jason is a very competitive person. He ...', then the cell state will erase 'Chad' as the subject name and write in 'Jason'. This is a very high level view of what a cell state contains and how it flows across the modules in time.
+
+Now that we know what a cell state represents, let's look briefly at what each layer in an LSTM module does:
+
+#### Layer 1:
+
+The first NN layer, called as the *forget gate layer*, decides what information we're going to *throw away* from the cell state. This decision is done purely based on the last module's output $$h_{t-1}$$ and the current data input $$x_t$$. Using a sigmoid activation, it outputs a vector of same length as the cell state with values between 0 and 1 : 0 representing that the corresponding information in the cell state be completely removed, 1 representing that the information be completely retained. This output is directly multiplied element wise to the cell state to get an intermediate modified cell state.
+
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/7yxwcvquwbch9pa/Screenshot%202022-02-28%20at%208.18.11%20AM.png?raw=1){: width="75%" }
+{: refdef}
+
+#### Layer 2 and 3:
+
+The next 2 layers decides what new information we're going to *add* to the cell state. The layer 2, called as the *input gate layer*, decides which values we will update - so similar to layer 1, it uses the sigmoid activation to come up with a vector that will act as weights to the new information vector (will be generated by layer 3) that we're going to add to the cell state. The layer 3, uses the tanh activation to come up with a set of candidate new information vector $$\tilde{C}_t$$, that could be added to the cell state. The outputs of layer 2 and 3 are then multplied element wise to come up with the final 'new information' vector that gets added element wise to the cell state output from layer 1. In summary, layer 3 generates a new information vector, layer 2 decides weights of each of the elements of this new info vector. The output cell state after this is no longer modified by the last layer.
+
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/t9opxzjjvdxap3d/Screenshot%202022-02-28%20at%208.18.31%20AM.png?raw=1){: width="75%" }
+{: refdef}
+
+#### Layer 4:
+
+The final layer uses the modified cell state $$C_t$$ along with $$h_{t-1}$$ and $$x_t$$ to calculate the output $$h_t$$ of this module. That's it!
+
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/l6a81k9gq65e8nb/Screenshot%202022-02-28%20at%208.18.59%20AM.png?raw=1){: width="75%" }
+{: refdef}
+
+The structure that we discussed is just one version of LSTM. In practice, each implementation of LSTMs could be a different variation of this structure, but with this understanding, we can at least understand the intuition behind any such LSTM models.
+
+[Source](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)

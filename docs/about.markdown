@@ -10,4 +10,4 @@ permalink: /about/
 - currently pursuing masters at UCLA focussing on ML and AI
 - have 4 years experience in Wireless and Signal Processing
 - undergrad from IIT Madras in Electrical Engg
-- hobbies: playing badminton, gaming, writing poems
+- hobbies: playing badminton, gaming, writing [poems](https://www.sanedrip.com/)

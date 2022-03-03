@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Reference Notes - 1"
+title:  "Reference Notes"
 date:   2022-02-22 21:54:38 -0800
 categories: notes
 ---
@@ -130,3 +130,99 @@ Requirements:
 [Source](https://stats.stackexchange.com/questions/134282/relationship-between-svd-and-pca-how-to-use-svd-to-perform-pca)
 
 ----
+
+## Autocorrect
+
+- Find similar words by sorting based on 'Jaccard Distance'
+- Return word with max probability or min distance
+
+[Source](https://www.analyticsvidhya.com/blog/2021/11/autocorrect-feature-using-nlp-in-python/)
+[Paper](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.67.9369&rep=rep1&type=pdf)
+
+---
+
+## Unsupervised clustering using NN
+
+- Method 1 (indirect):
+    - Use auto-encoder to train the hidden layer
+    - Use the hidden layer's activations for clustering
+- Method 2:
+    - Use SOM (Self Organising Maps)
+
+[Source](https://stats.stackexchange.com/questions/140148/how-can-an-artificial-neural-network-ann-be-used-for-unsupervised-clustering)
+
+---
+
+## Random Forests vs Gradient Boost
+
+- **How trees are built**: random forests builds each tree independently while gradient boosting builds one tree at a time. This additive model (ensemble) works in a forward stage-wise manner, introducing a weak learner to improve the shortcomings of existing weak learners.
+- **Combining results**: random forests combine results at the end of the process (by averaging or “majority rules”) while gradient boosting combines results along the way.
+
+[Source](https://www.datasciencecentral.com/decision-tree-vs-random-forest-vs-boosted-trees-explained/#:~:text=Like%20random%20forests%2C%20gradient%20boosting,one%20tree%20at%20a%20time.)
+
+---
+
+## VC Dimension
+
+- If there exists **at least one** set of $$n$$ points such that *all* labeling orders amongst them is separable (can be 'shattered') by the classifier, **and** there exists **no single** set of points in which *all* labeling orders is separable by the classifier, then the VC dimension is $$n$$.
+
+[Source](https://datascience.stackexchange.com/questions/32557/what-is-the-exact-definition-of-vc-dimension)
+
+---
+
+## Gini Index vs Entropy
+
+- Both these are used to decide which feature to split a tree on
+- For the rest of the points, consider $$P_i$$ as the probability of a certain class in the distribution
+- Gini Index = $$1 - \sum_{i=1}^n(P_i)^2$$
+- Entropy = $$\sum_{i=1}^n(-P_i\log_2(P_i))$$
+- Gini Index is used in CART(Classification and Regression Tree) algorithms while Entropy is used in ID3 algorithms
+- Gini Index facilitates bigger distributions while Entropy favors lesser distributions having small count with multiple specific values
+
+[Source](https://medium.com/analytics-steps/understanding-the-gini-index-and-information-gain-in-decision-trees-ab4720518ba8)
+
+---
+
+## Decision Trees and Boosting
+
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/he0xs5f4va3p7ws/Screenshot%202022-02-28%20at%209.41.48%20AM.png?raw=1){: width="95%" }
+{: refdef}
+
+[Source](https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d)
+
+---
+
+## Reinforcement Learning Basics
+
+- Software agents that make decisions and take actions to maximize an award and minimize penalties.
+- It's an iterative feedback loop between an agent and its environment
+- Broad goal is to achieve a balance between exploration (training on new data points) and exploitation (use of previously captured data)
+
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/lhzu2j0i3swgqd2/Screenshot%202022-03-03%20at%202.33.15%20AM.png?raw=1){: width="95%" }
+{: refdef}
+
+Terminology used in RL:
+- Action (A): All the possible moves that the agent can take
+- State (S): Current situation returned by the environment.
+Reward (R): An immediate return send back from the environment to evaluate the last action.
+- Policy (π): The strategy that the agent employs to determine next action based on the current state.
+- Value (V): The expected long-term return with discount, as opposed to the short-term reward R. Vπ(s) is defined as the expected long-term return of the current state sunder policy π.
+- Q-value or action-value (Q): Q-value is similar to Value, except that it takes an extra parameter, the current action a. Qπ(s, a) refers to the long-term return of the current state s, taking action a under policy π.
+
+[Source](https://towardsdatascience.com/the-ultimate-beginners-guide-to-reinforcement-learning-588c071af1ec)
+
+---
+
+## Gausian Mixture Models
+
+- Clustering algorithms like the K-Means are *hard clustering methods*, which means that they assign a point to only one cluster. GMMs attempt to do a *soft* clustering by giving out probabilities of a point belonging to a certain cluster
+
+{:refdef: style="text-align: center;"}
+![img0](https://www.dropbox.com/s/59i7ogc5qka5rjz/Screenshot%202022-03-03%20at%202.52.56%20AM.png?raw=1){: width="95%" }
+{: refdef}
+
+[Source](https://towardsdatascience.com/gaussian-mixture-models-explained-6986aaf5a95)
+
+---
