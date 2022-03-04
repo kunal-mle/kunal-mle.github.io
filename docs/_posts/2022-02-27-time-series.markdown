@@ -4,7 +4,6 @@ title:  "Time Series Forecasting"
 date:   2022-02-27 21:43:38 -0800
 categories: topics
 ---
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 
 ## Applications
 Stock price prediction, Words separation in speech, Autocorrelated series (ex: $$v(t) = 0.99 * v(t-1)$$) etc. The spikes in the image below are sometimes called as '*innovations*', which can't be predicted based on past values.

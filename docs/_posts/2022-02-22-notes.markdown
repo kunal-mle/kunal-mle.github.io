@@ -4,7 +4,6 @@ title:  "Reference Notes"
 date:   2022-02-22 21:54:38 -0800
 categories: notes
 ---
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 
 ## Assumptions of linear regression?
 
@@ -96,6 +95,9 @@ Requirements:
 	- Oversampling/Undersampling
 	- SMOTE (Synthetic Minority Oversampling TEchnique)
 - Cost-sensitive methods (Act on the cost function)
+- Data Replication
+- Synthetic Data (Augmentation)
+- Increase algorithm complexity (Con: overfitting)
 
 [Source](https://towardsdatascience.com/guide-to-classification-on-imbalanced-datasets-d6653aa5fa23)
 
@@ -226,3 +228,28 @@ Reward (R): An immediate return send back from the environment to evaluate the l
 [Source](https://towardsdatascience.com/gaussian-mixture-models-explained-6986aaf5a95)
 
 ---
+
+## Different types of Loss functions
+
+- Regression
+    - Mean Square Error/L2 Loss
+    - Mean Absolute Error/L1 Loss
+    - Mean Bias Error (less common)
+- Classification
+    - Hinge Loss/Multi class SVM Loss: $$\max(0,1-yw^Tx)$$
+    - Cross Entropy Loss/Negative Log Likelihood: $$\log(1+e^{-yw^Tx})$$
+    - Zero-One(0-1) Loss: 1 if $$yw^Tx<0$$, 0 otherwise
+    - Exponential Loss: $$e^{-yw^Tx}$$
+    - Perceptron Loss: $$\max(0,-yw^Tx)$$
+
+[Source](https://towardsdatascience.com/common-loss-functions-in-machine-learning-46af0ffc4d23)
+
+---
+
+## Leaky ReLu over ReLu
+
+- With ReLu, we can face 'dead ReLu' situation where if during backward pass, the gradient is 0 at a layer, absolutely no learning is performed in the layers below the dead ReLu because 0 will be multiplied to the accumulated gradient for the weight update. Thus, we have dead neurons.
+- Leaky ReLu solves this by having a small gradient in the negative region. This enables us to worry less about the initialization of our Neural network. In ReLu case we could end up in a neural network that never learns if the neurons are not activated at the start - we may have lots of dead ReLu without even knowing.
+- However ReLu computes faster and can introduce sort of 'optimal brain damage' regularization in your machine learning algorithm. 
+
+[Source](https://www.quora.com/What-are-the-advantages-of-using-Leaky-Rectified-Linear-Units-Leaky-ReLU-over-normal-ReLU-in-deep-learning)

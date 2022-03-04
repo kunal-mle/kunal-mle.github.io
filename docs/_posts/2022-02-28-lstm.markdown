@@ -4,7 +4,6 @@ title:  "RNNs and LSTMs"
 date:   2022-02-28 8:22:38 -0800
 categories: topics
 ---
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 
 ### RNN - Recurrent Neural Network
 
